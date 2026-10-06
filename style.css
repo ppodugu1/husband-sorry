@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at top, #ffd8e5, #ffb6cf 45%, #ff8fb6);
+  color: #3b1727;
+}
+
+.card,
+.forgiven {
+  width: min(92%, 560px);
+  padding: 42px 28px;
+  text-align: center;
+  border-radius: 30px;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 25px 70px rgba(100, 20, 50, .25);
+  position: relative;
+  z-index: 2;
+}
+
+.emoji {
+  font-size: 64px;
+  animation: shake 1.4s infinite;
+}
+
+.tiny {
+  margin: 12px 0 8px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  opacity: .65;
+}
+
+h1 {
+  margin: 5px 0 15px;
+  font-size: clamp(34px, 8vw, 56px);
+}
+
+.message {
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.buttons {
+  min-height: 125px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 15px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.sorry {
+  color: white;
+  background: #e91e63;
+  box-shadow: 0 10px 25px rgba(233,30,99,.3);
+}
+
+.escape {
+  background: #f3edf0;
+  color: #5a3b49;
+  position: relative;
+}
+
+.hint {
+  margin-top: 20px;
+  opacity: .65;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none;
+}
+
+.forgiven h2 {
+  font-size: clamp(32px, 8vw, 50px);
+  margin: 10px 0;
+}
+
+.big-heart {
+  font-size: 90px;
+  animation: heartbeat .9s infinite;
+}
+
+.final {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.forgiven button {
+  margin-top: 15px;
+  background: #e91e63;
+  color: white;
+}
+
+.hearts::before,
+.hearts::after {
+  content: "❤️  💕  💗  💖  💕  ❤️";
+  position: fixed;
+  left: 0;
+  width: 100%;
+  font-size: 30px;
+  letter-spacing: 25px;
+  opacity: .25;
+  animation: float 10s linear infinite;
+}
+
+.hearts::before { top: 100%; }
+.hearts::after { top: 110%; animation-delay: 4s; }
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-6deg); }
+  75% { transform: rotate(6deg); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-130vh); }
+}
+
+@media (max-width: 480px) {
+  .card, .forgiven {
+    padding: 32px 20px;
+  }
+}
